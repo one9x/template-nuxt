@@ -1,11 +1,52 @@
 <template>
-  <div>
-    <h1>Nuxt</h1>
-    <p>Prerendered with <code>nuxt generate</code>, deployed to One9x Pages.</p>
-    <p><NuxtLink to="/about">About</NuxtLink></p>
-    <p class="note">
-      The output folder is <code>.output/public</code>. The dot is on a parent of
-      what you deploy, so nothing is dropped by the dotfile skip.
+  <div class="wrap">
+    <p class="eyebrow">One9x Pages · template</p>
+    <h1>Nuxt <span class="thin">prerendered</span></h1>
+    <p class="lede">
+      This page is the live output of a template repository. Copy it and you
+      have a Nuxt site that deploys itself to a URL of your own on every push.
     </p>
+
+    <div class="row">
+      <a class="btn btn-1" href="https://github.com/one9x/template-nuxt/generate">Use this template &rarr;</a>
+      <a class="btn btn-2" href="https://github.com/one9x/template-nuxt">View the repo</a>
+    </div>
+
+    <h2>Start from it</h2>
+    <ol>
+      <li><strong>Use this template</strong> on GitHub to get your own copy.</li>
+      <li>Create a site and a token:
+<pre><span class="p">$ </span>one9x pages create mysite
+<span class="p">$ </span>one9x tokens create "github actions"</pre></li>
+      <li>In the new repo, under <strong>Settings &rarr; Secrets and variables &rarr;
+        Actions</strong>, add the variable <code>ONE9X_SITE</code>
+        (<code>mysite</code>) and the secret <code>ONE9X_TOKEN</code>.</li>
+      <li>Push. A pull request gets a preview URL; <code>main</code> goes live.</li>
+    </ol>
+
+    <h2>Or deploy what you already have</h2>
+<pre><span class="p">$ </span>npx nuxt generate
+<span class="p">$ </span>one9x pages release ./.output/public --site mysite --deploy</pre>
+
+    <h2>What this template sets up</h2>
+    <table class="facts">
+    <tbody>
+      <tr><th>Build command</th><td><code>npx nuxt generate</code></td></tr>
+      <tr><th>Output folder</th><td><code>.output/public</code></td></tr>
+      <tr><th>Not</th><td><code>nuxt build</code> &mdash; that is a server bundle</td></tr>
+      <tr><th>CI</th><td>preview URL on every pull request, publish on <code>main</code></td></tr>
+    </tbody>
+  </table>
+
+    <nav class="local">
+      <NuxtLink to="/about">A second page &rarr;</NuxtLink>
+      <span style="color:var(--wire)"> &mdash; prerendered at build time.</span>
+    </nav>
+
+    <footer>
+      Hosted on <a href="https://one9x.com">One9x Pages</a> &middot;
+      <a href="https://one9x.com/docs/frameworks/nuxt">Nuxt guide</a> &middot;
+      <a href="https://one9x.com/docs">Docs</a>
+    </footer>
   </div>
 </template>
